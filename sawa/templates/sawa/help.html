@@ -1,0 +1,149 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Miami University S.A.W.A</title>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".tip").toggle (
+                    function() {
+                        $(this).addClass("open");
+                        $(this).next().show();
+                   },
+
+                    function() {
+                        $(this).toggleClass("open");
+                        $(this).next().hide();
+                           }
+                    ); // end toggle
+            }); // end ready
+        </script>
+		<style type="text/css">
+            .wrapper {
+                width: 940px;
+                margin: 20px auto;
+                border: 2px solid darkred;
+                background-color: white;}
+
+            header img {
+                margin-top: 10px;
+                padding-top: 20px;
+                padding-left: 20px;}
+
+            header h5 {
+                margin-top: 5px;
+                padding-left: 20px;}
+
+            hgroup {
+                position: absolute;}
+
+            header h1 {
+                text-align: right;
+                margin-top: 10px;
+                padding-top: 20px;
+                margin-right: 20px;}
+
+              header h3 {
+                text-align: right;
+                margin-top: 0px;
+                padding-top: 0px;
+                margin-right: 20px;}
+
+            fieldset {
+                margin: 150px 200px 10px 200px;}
+
+            #execute_title {
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 0px;}
+
+            #button_holder {
+                text-align: center;}
+
+            #execute_button {
+                padding: 10px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100px;}
+
+            #execute_button:hover {
+                cursor: hand;
+                cursor: pointer;}
+
+            nav {
+                padding-top: 10px;
+                border-top: 1px dotted black;
+                text-align: center;}
+
+            nav li {
+                display: inline;
+                margin: 40px;}
+
+            nav a {
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                border: 1px solid black;
+                padding: 0px 5px 0px 5px;}
+
+            nav a:hover {
+                color: white;
+                background-color: darkred;}
+
+            footer {
+                padding: 10px
+            }
+
+            /* HELP TITLES CSS*/
+
+            .tip:hover {
+                color: red;
+                cursor: crosshair;
+                cursor: pointer;}
+
+            .closed {
+                display: none;}
+
+            .open {
+                display: block;}
+
+		</style>
+	</head>
+	<body>
+        <div class = "wrapper">
+            <header>
+                <hgroup>
+                    <img src = "/static/sawa/images/miami-logo.png">
+                    <h5>Miami University Information Systems and Analystics Department</h5>
+                </hgroup>
+                <h1>S.A.W.A</h1>
+                <h3>Sentiment Analysis Web Application</h3>
+            </header>
+            <section>
+                <form>
+                    <fieldset>
+                        <h3 class = tip>Tip 1</h3>
+                            <p class = closed>textextextextextextextextextextextextext</p>
+                        <h3 class = tip>Tip 2</h3>
+                            <p class = closed>textextextextextextextextextextextextext</p>
+                        <h3 class = tip>Tip 3</h3>
+                            <p class = closed>textextextextextextextextextextextextext</p>
+                        <h3 class = tip>Tip 4</h3>
+                            <p class = closed>textextextextextextextextextextextextext</p>
+                        <h3 class = tip>Tip 5</h3>
+                            <p class = closed>textextextextextextextextextextextextext</p>
+                        <nav>
+                            <li><a href = "{% url 'upload' %}">To Upload Page</a></li>
+                        </nav>
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                <p>&copy; ISA 406 S.A.W.A Project</p>
+            </footer>
+        </div>
+	</body>
+</html>

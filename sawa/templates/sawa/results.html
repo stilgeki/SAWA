@@ -1,0 +1,145 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Miami University S.A.W.A</title>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<style type="text/css">
+            .wrapper {
+                width: 940px;
+                margin: 20px auto;
+                border: 2px solid darkred;
+                background-color: white;}
+
+            header img {
+                margin-top: 10px;
+                padding-top: 20px;
+                padding-left: 20px;}
+
+            header h5 {
+                margin-top: 5px;
+                padding-left: 20px;}
+
+            hgroup {
+                position: absolute;}
+
+            header h1 {
+                text-align: right;
+                margin-top: 10px;
+                padding-top: 20px;
+                margin-right: 20px;}
+
+              header h3 {
+                text-align: right;
+                margin-top: 0px;
+                padding-top: 0px;
+                margin-right: 20px;}
+
+            fieldset {
+                margin: 150px 200px 10px 200px;}
+
+            #execute_title {
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 0px;}
+
+            #button_holder {
+                text-align: center;}
+
+            #execute_button {
+                padding: 10px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100px;}
+
+            #execute_button:hover {
+                cursor: hand;
+                cursor: pointer;}
+
+            nav {
+                padding-top: 10px;
+                border-top: 1px dotted black;
+                text-align: center;}
+
+            nav li {
+                display: inline;
+                margin: 40px;}
+
+            nav a {
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                border: 1px solid black;
+                padding: 0px 5px 0px 5px;}
+
+            nav a:hover {
+                color: white;
+                background-color: darkred;}
+
+            footer {
+                padding: 10px
+            }
+
+            #loading {
+                text-align: center;
+                font-weight: bolder;}
+            
+            #upload_title {
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 10px;}
+		</style>
+	</head>
+	<body>
+        <div class = "wrapper">
+            <header>
+                <hgroup>
+                    <img src = "/static/sawa/images/miami-logo.png">
+                    <h5>Miami University Information Systems and Analystics Department</h5>
+                </hgroup>
+                <h1>S.A.W.A</h1>
+                <h3>Sentiment Analysis Web Application</h3>
+            </header>
+            <section>
+                <form>
+                    <fieldset>
+
+                        <!-- RESULTS WILL BE POSTED HERE -->                                
+                                <h2 id = "upload_title">Results of Analysis:</h2>
+                        
+                                {% for item in pt_sentiment %}
+                                    <div>Percent of Terrible Reviews: {{ item.show_pt_terrible|floatformat:2 }}%</div>
+                                    <div>Percent of Bad Reviews: {{ item.show_pt_bad|floatformat:2 }}%</div>
+                                    <div>Percent of Neutral Reviews: {{ item.show_pt_neutral|floatformat:2 }}%</div>                            
+                                    <div>Percent of Good Reviews: {{ item.show_pt_good|floatformat:2 }}%</div>
+                                    <div>Percent of Excellent Reviews: {{ item.show_pt_excellent|floatformat:2 }}%</div>
+                                {% endfor %}
+                        
+                                <p>--------------------------------------------------------------------------------------------</p>
+                        
+                                {% for item in ct_sentiment %}
+                                    <div>Number of Terrible Reviews: {{ item.show_ct_terrible }}</div>
+                                    <div>Number of Bad Reviews: {{ item.show_ct_bad }}</div>
+                                    <div>Number of Neutral Reviews: {{ item.show_ct_neutral }}</div>                            
+                                    <div>Number of Good Reviews: {{ item.show_ct_good }}</div>
+                                    <div>Number of Excellent Reviews: {{ item.show_ct_excellent }}</div>
+                                {% endfor %}
+                                <br/>
+                        
+                        <nav>
+                            <li><a href = "">Download</a></li>
+                            <li><a href = "{% url 'help' %}">Help</a></li>
+                        </nav>
+        
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                <p>&copy; ISA 406 S.A.W.A Project</p>
+            </footer>
+        </div>
+	</body>
+</html>

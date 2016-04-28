@@ -1,0 +1,120 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Miami University S.A.W.A</title>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<style type="text/css">
+            .wrapper {
+                width: 940px;
+                margin: 20px auto;
+                border: 2px solid darkred;
+                background-color: white;}
+
+            header img {
+                margin-top: 10px;
+                padding-top: 20px;
+                padding-left: 20px;}
+
+            header h5 {
+                margin-top: 5px;
+                padding-left: 20px;}
+
+            hgroup {
+                position: absolute;}
+
+            header h1 {
+                text-align: right;
+                margin-top: 10px;
+                padding-top: 20px;
+                margin-right: 20px;}
+
+              header h3 {
+                text-align: right;
+                margin-top: 0px;
+                padding-top: 0px;
+                margin-right: 20px;}
+
+            fieldset {
+                margin: 150px 200px 10px 200px;}
+
+            #execute_title {
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 0px;}
+
+            #button_holder {
+                text-align: center;}
+
+            #execute_button {
+                padding: 10px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 100px;}
+
+            #execute_button:hover {
+                cursor: hand;
+                cursor: pointer;}
+
+            nav {
+                padding-top: 10px;
+                border-top: 1px dotted black;
+                text-align: center;}
+
+            nav li {
+                display: inline;
+                margin: 40px;}
+
+            nav a {
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                border: 1px solid black;
+                padding: 0px 5px 0px 5px;}
+
+            nav a:hover {
+                color: white;
+                background-color: darkred;}
+
+            footer {
+                padding: 10px
+            }
+		</style>
+	</head>
+	<body>
+        <div class = "wrapper">
+            <header>
+                <hgroup>
+                    <img src = "/static/sawa/images/miami-logo.png">
+                    <h5>Miami University Information Systems and Analystics Department</h5>
+                </hgroup>
+                <h1>S.A.W.A</h1>
+                <h3>Sentiment Analysis Web Application</h3>
+            </header>
+            <section>
+                <form>
+                    <fieldset>
+                        <h2 id = "execute_title">Execute Program:</h2>
+												<a href = "{% url 'results' %}">
+												<div id = "button_holder">
+
+                            <!--CONNECT PYTHON PROGRAM???? -->
+
+                            <input type = "button" value = "EXECUTE" id = "execute_button">
+                        </div>
+												</a>
+                        <nav>
+                            <li><a href = "{% url 'upload' %}">Back</a></li>
+                            <li><a href = "{% url 'help' %}">Help</a></li>
+                        </nav>
+                    </fieldset>
+                </form>
+            </section>
+            <footer>
+                <p>&copy; ISA 406 S.A.W.A Project</p>
+            </footer>
+        </div>
+	</body>
+</html>
